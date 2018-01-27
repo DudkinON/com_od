@@ -21,4 +21,13 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
+class Certificates(Base):
+    __tablename__ = 'certificates'
+    title = Column(String(50))
+    description = Column(String(250))
+    url = Column(String(250))
+    image = Column(String(250))
+    is_active = Column(Boolean, default=True)
+
+
 Base.metadata.create_all(engine)
