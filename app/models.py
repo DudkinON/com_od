@@ -56,5 +56,17 @@ class Works(Base):
     image = Column(String(250))
     is_active = Column(Boolean, default=True)
 
+    @property
+    def serialize(self):
+
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'images': self.image,
+            'url': self.url,
+            'is_active': self.is_active
+        }
+
 
 Base.metadata.create_all(engine)
