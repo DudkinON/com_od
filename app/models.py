@@ -32,7 +32,11 @@ class Certificates(Base):
 
     @property
     def serialize(self):
+        """
+        Return certificates serialize data
 
+        :return dict:
+        """
         return {
             'id': self.id,
             'title': self.title,
