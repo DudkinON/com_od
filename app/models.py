@@ -30,4 +30,13 @@ class Certificates(Base):
     is_active = Column(Boolean, default=True)
 
 
+class Works(Base):
+    __tablename__ = 'works'
+    title = Column(String(50))
+    description = Column(String(250))
+    url = Column(String(250))
+    image = Column(String(250))
+    is_active = Column(Boolean, default=True)
+
+
 Base.metadata.create_all(engine)
