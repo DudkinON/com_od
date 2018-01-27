@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Boolean
+from sqlalchemy import Column, String, Boolean, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
@@ -23,6 +23,7 @@ session = DBSession()
 
 class Certificates(Base):
     __tablename__ = 'certificates'
+    id = Column(Integer, primary_key=True)
     title = Column(String(50))
     description = Column(String(250))
     url = Column(String(250))
@@ -32,6 +33,7 @@ class Certificates(Base):
 
 class Works(Base):
     __tablename__ = 'works'
+    id = Column(Integer, primary_key=True)
     title = Column(String(50))
     description = Column(String(250))
     url = Column(String(250))
