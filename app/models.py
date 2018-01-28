@@ -5,6 +5,7 @@ from sqlalchemy import Column, String, Boolean, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from itsdangerous import BadSignature, SignatureExpired
 from passlib.apps import custom_app_context as pwd_context
 from resource import get_unique_str
 from settings import db
@@ -108,6 +109,21 @@ class User(Base):
         """
         s = Serializer(secret_key, expires_in=expiration)
         return s.dumps({'uid': self.id})
+
+    @staticmethod
+    def verify_auth_token(token):
+
+        s = Serializer(secret_key)
+        try:
+            data = s.loads(token)
+        except SignatureExpired:
+            # Valid Token, but expired
+            return None
+        except BadSignature:
+            # Invalid Token
+            return None
+        uid = data['uid']
+        return uid
 
 
 # create engine
