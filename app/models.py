@@ -1,6 +1,5 @@
 from sqlalchemy import Column, String, Boolean, Integer
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
 from resource import get_unique_str
 from settings import db
@@ -10,15 +9,9 @@ secret_key = get_unique_str(32)
 
 # prepare engine
 egg = 'postgresql://%s:%s@%s/%s' % (db['user'],
-                                   db['password'],
-                                   db['host'],
-                                   db['database'])
-
-# create session
-engine = create_engine(egg)
-Base.metadata.bind = engine
-DBSession = sessionmaker(bind=engine)
-session = DBSession()
+                                    db['password'],
+                                    db['host'],
+                                    db['database'])
 
 
 class Certificates(Base):
@@ -73,4 +66,6 @@ class Works(Base):
         }
 
 
+# create engine
+engine = create_engine(egg)
 Base.metadata.create_all(engine)
