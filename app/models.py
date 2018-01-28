@@ -89,7 +89,11 @@ class User(Base):
         self.hash = pwd_context.encrypt(password)
 
     def verify_password(self, password):
-
+        """
+        Password verification
+        :param password:
+        :return bool:
+        """
         return pwd_context.verify(password, self.hash)
 
 
