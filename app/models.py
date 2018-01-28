@@ -1,6 +1,7 @@
 from sqlalchemy import Column, String, Boolean, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
+from passlib.apps import custom_app_context as pwd_context
 from resource import get_unique_str
 from settings import db
 
@@ -78,6 +79,10 @@ class User(Base):
     hash = Column(String(250))
     status = Column(Boolean, default=True)
     role = Column(String(10), default='user')
+
+    def hash_password(self, password):
+
+        self.hash = pwd_context.encrypt(password)
 
 
 # create engine
