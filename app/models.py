@@ -81,7 +81,11 @@ class User(Base):
     role = Column(String(10), default='user')
 
     def hash_password(self, password):
-
+        """
+        Get string and hashing it
+        :param password: (str)
+        :return void:
+        """
         self.hash = pwd_context.encrypt(password)
 
 
