@@ -101,7 +101,11 @@ class User(Base):
         return pwd_context.verify(password, self.hash)
 
     def generate_auth_token(self, expiration=3600):
-
+        """
+        Generate authentication token
+        :param expiration:
+        :return string: (token)
+        """
         s = Serializer(secret_key, expires_in=expiration)
         return s.dumps({'uid': self.id})
 
