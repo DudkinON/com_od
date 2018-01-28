@@ -4,6 +4,7 @@
 from sqlalchemy import Column, String, Boolean, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from passlib.apps import custom_app_context as pwd_context
 from resource import get_unique_str
 from settings import db
@@ -98,6 +99,11 @@ class User(Base):
         :return bool:
         """
         return pwd_context.verify(password, self.hash)
+
+    def generate_auth_token(self, expiration=3600):
+
+        s = Serializer(secret_key, expires_in=expiration)
+        return s.dumps({'uid': self.id})
 
 
 # create engine
