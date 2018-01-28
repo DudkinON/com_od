@@ -12,4 +12,8 @@ session = DBSession()
 
 # database actions
 def get_certificates():
+    """
+    Return list of certificates
+    :return object:
+    """
     return session.query(Certificates).filter_by(is_active=True).all()
