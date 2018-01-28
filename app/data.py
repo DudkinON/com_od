@@ -45,3 +45,8 @@ def add_certificate(certificate):
     session.add(new_certificate)
     session.commit()
     return new_certificate
+
+
+def get_user_by_id(uid):
+
+    return session.query(User).filter_by(id=uid).one()
