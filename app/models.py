@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from sqlalchemy import Column, String, Boolean, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine

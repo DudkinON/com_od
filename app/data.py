@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from models import Certificates, Works, Base, egg
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
