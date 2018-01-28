@@ -20,4 +20,8 @@ def get_certificates():
 
 
 def get_works():
+    """
+    Return list of works
+    :return object:
+    """
     return session.query(Works).filter_by(is_active=True).all()
