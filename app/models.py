@@ -15,6 +15,7 @@ egg = 'postgresql://%s:%s@%s/%s' % (db['user'],
 
 
 class Certificates(Base):
+
     __tablename__ = 'certificates'
     id = Column(Integer, primary_key=True)
     title = Column(String(50))
@@ -41,6 +42,7 @@ class Certificates(Base):
 
 
 class Works(Base):
+
     __tablename__ = 'works'
     id = Column(Integer, primary_key=True)
     title = Column(String(50))
@@ -64,6 +66,18 @@ class Works(Base):
             'url': self.url,
             'is_active': self.is_active
         }
+
+
+class User(Base):
+
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    first_name = Column(String(60))
+    last_name = Column(String(60))
+    email = Column(String(45))
+    hash = Column(String(250))
+    status = Column(Boolean, default=True)
+    role = Column(String(10), default='user')
 
 
 # create engine
