@@ -28,6 +28,11 @@ def get_works():
 
 
 def add_certificate(certificate):
+    """
+    Add a new certificate in database
+    :param certificate: (dict)
+    :return object:
+    """
     new_certificate = Certificates(
         title=certificate['title'],
         description=certificate['description'],
