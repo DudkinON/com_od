@@ -48,5 +48,9 @@ def add_certificate(certificate):
 
 
 def get_user_by_id(uid):
-
+    """
+    Return user by user id
+    :param uid:
+    :return return:
+    """
     return session.query(User).filter_by(id=uid).one()
