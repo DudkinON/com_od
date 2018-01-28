@@ -12,7 +12,12 @@ auth = HTTPBasicAuth()
 
 @auth.verify_password
 def verify_password(_login, password):
-
+    """
+       User verification
+       :param _login: (str)
+       :param password: (str)
+       :return bool:
+    """
     user_id = User.verify_auth_token(_login)
     if user_id:
         user = get_user_by_id(user_id)
