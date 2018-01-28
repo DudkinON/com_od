@@ -25,3 +25,15 @@ def get_works():
     :return object:
     """
     return session.query(Works).filter_by(is_active=True).all()
+
+
+def add_certificate(certificate):
+    new_certificate = Certificates(
+        title=certificate['title'],
+        description=certificate['description'],
+        url=certificate['url'],
+        image=certificate['image']
+    )
+    session.add(new_certificate)
+    session.commit()
+    return new_certificate
