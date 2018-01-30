@@ -41,6 +41,19 @@ def show_works():
     return jsonify(works), 200
 
 
+@app.route("/token")
+@auth.login_required
+def get_auth_token():
+
+    return jsonify({'token': g.user.generate_auth_token().decode('ascii'),
+                    'uid': g.user.id,
+                    'first_name': g.user.first_name,
+                    'last_name': g.user.last_name,
+                    'status': g.user.status,
+                    'role': g.user.role,
+                    'email': g.user.email})
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
