@@ -44,7 +44,10 @@ def show_works():
 @app.route("/token")
 @auth.login_required
 def get_auth_token():
-
+    """
+    Return auth token
+    :return string: JSON
+    """
     return jsonify({'token': g.user.generate_auth_token().decode('ascii'),
                     'uid': g.user.id,
                     'first_name': g.user.first_name,
