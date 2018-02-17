@@ -159,6 +159,14 @@ class SkillsCategory(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String(60))
 
+    @property
+    def serialize(self):
+
+        return {
+            'id': self.id,
+            'title': self.title
+        }
+
 
 # create engine
 engine = create_engine(egg)
