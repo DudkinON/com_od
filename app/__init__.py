@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, jsonify, g
-from data import get_certificates, get_works, User, get_user_by_id
+from data import get_certificates, get_works, User, get_user_by_id, get_skills
 from flask_httpauth import HTTPBasicAuth
+from settings import BASE_DIR
 
 # define global variables
 app = Flask(__name__)
@@ -38,6 +39,12 @@ def show_certificates():
 @app.route("/works")
 def show_works():
     works = [item.serialize for item in get_works()]
+    return jsonify(works), 200
+
+
+@app.route("/skills")
+def show_works():
+    works = [item.serialize for item in get_skills()]
     return jsonify(works), 200
 
 
