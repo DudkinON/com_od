@@ -188,6 +188,16 @@ class Skills(Base):
         return session.query(SkillsCategory).filter_by(
             id=self.category).one().serialize
 
+    @property
+    def serialize(self):
+
+        return {
+            'id': self.id,
+            'title': self.title,
+            'percent': self.percent,
+            'category': self.get_category()
+        }
+
 
 # create engine
 engine = create_engine(egg)
