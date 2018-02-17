@@ -30,6 +30,14 @@ def verify_password(_login, password):
     return True
 
 
+@app.route("/")
+def home():
+    path = "%s/%s" % (BASE_DIR, "index.html")
+    with open(path, "r+") as f:
+        html = f.read()
+    return html
+
+
 @app.route("/certificates")
 def show_certificates():
     certificates = [item.serialize for item in get_certificates()]
