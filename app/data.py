@@ -48,5 +48,8 @@ def get_user_by_id(uid):
 
 
 def get_skills():
-
+    """
+    Return list of skills
+    :return:
+    """
     return session.query(Skills).all()
