@@ -153,6 +153,13 @@ class User(Base):
         }
 
 
+class SkillsCategory(Base):
+
+    __tablename__ = 'skills_category'
+    id = Column(Integer, primary_key=True)
+    title = Column(String(60))
+
+
 # create engine
 engine = create_engine(egg)
 Base.metadata.create_all(engine)
