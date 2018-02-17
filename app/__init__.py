@@ -51,7 +51,7 @@ def show_works():
 
 
 @app.route("/skills")
-def show_works():
+def show_skills():
     works = [item.serialize for item in get_skills()]
     return jsonify(works), 200
 
