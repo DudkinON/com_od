@@ -181,7 +181,10 @@ class Skills(Base):
     category = Column(Integer, ForeignKey("skills_category.id"))
 
     def get_category(self):
-
+        """
+        Return serialize category
+        :return:
+        """
         return session.query(SkillsCategory).filter_by(
             id=self.category).one().serialize
 
