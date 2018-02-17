@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from sqlalchemy import Column, String, Boolean, Integer
+from sqlalchemy import Column, String, Boolean, Integer, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from itsdangerous import BadSignature, SignatureExpired
 from passlib.apps import custom_app_context as pwd_context
@@ -18,6 +19,13 @@ egg = 'postgresql://%s:%s@%s/%s' % (db['user'],
                                     db['password'],
                                     db['host'],
                                     db['database'])
+
+
+# create session
+engine = create_engine(egg)
+Base.metadata.bind = engine
+DBSession = sessionmaker(bind=engine)
+session = DBSession()
 
 
 class Certificates(Base):

@@ -1,16 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from models import Certificates, Works, Base, User, egg
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-
-
-# create session
-engine = create_engine(egg)
-Base.metadata.bind = engine
-DBSession = sessionmaker(bind=engine)
-session = DBSession()
+from models import Certificates, Works, User, session
 
 
 # database actions
@@ -54,3 +45,8 @@ def get_user_by_id(uid):
     :return return:
     """
     return session.query(User).filter_by(id=uid).one()
+
+
+def get_skills():
+
+    return
