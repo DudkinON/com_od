@@ -180,6 +180,11 @@ class Skills(Base):
     percent = Column(Integer)
     category = Column(Integer, ForeignKey("skills_category.id"))
 
+    def get_category(self):
+
+        return session.query(SkillsCategory).filter_by(
+            id=self.category).one().serialize
+
 
 # create engine
 engine = create_engine(egg)
