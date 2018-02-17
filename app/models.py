@@ -172,6 +172,15 @@ class SkillsCategory(Base):
         }
 
 
+class Skills(Base):
+
+    __tablename__ = 'skills'
+    id = Column(Integer, primary_key=True)
+    title = Column(String(30))
+    percent = Column(Integer)
+    category = Column(Integer, ForeignKey("skills_category.id"))
+
+
 # create engine
 engine = create_engine(egg)
 Base.metadata.create_all(engine)
