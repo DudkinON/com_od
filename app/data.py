@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from models import Certificates, Works, User, session
+from models import Certificates, Works, User, Skills, session
 
 
 # database actions
@@ -49,4 +49,4 @@ def get_user_by_id(uid):
 
 def get_skills():
 
-    return
+    return session.query(Skills).all()
