@@ -61,6 +61,10 @@ def show_works():
 
 @app.route("/skills")
 def show_skills():
+    """
+    Return all skills with categories (JSON format)
+    :return String: (JSON)
+    """
     skills = [item.serialize for item in get_skills()]
     return jsonify(skills), 200
 
