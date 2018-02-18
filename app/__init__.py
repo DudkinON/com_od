@@ -45,6 +45,10 @@ def home():
 
 @app.route("/certificates")
 def show_certificates():
+    """
+    Return all certificates (JSON format)
+    :return String: (JSON)
+    """
     certificates = [item.serialize for item in get_certificates()]
     return jsonify(certificates), 200
 
