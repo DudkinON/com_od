@@ -56,5 +56,8 @@ def get_skills():
 
 
 def get_experience():
-
+    """
+    Return list of experience work places
+    :return:
+    """
     return session.query(Experience).all()
