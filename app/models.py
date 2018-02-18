@@ -214,7 +214,11 @@ class Experience(Base):
 
     @property
     def serialize(self):
+        """
+        Return experience serialize data
 
+        :return dict:
+        """
         return {
             'id': self.id,
             'title': self.title,
