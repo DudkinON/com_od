@@ -33,6 +33,10 @@ def verify_password(_login, password):
 
 @app.route("/")
 def home():
+    """
+    Read and return index HTML file
+    :return String:
+    """
     path = "%s/%s" % (BASE_DIR, "index.html")
     with open(path, "r+") as f:
         html = f.read()
