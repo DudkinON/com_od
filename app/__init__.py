@@ -3,6 +3,7 @@
 
 from flask import Flask, jsonify, g
 from data import get_certificates, get_works, User, get_user_by_id, get_skills
+from data import get_experience
 from flask_httpauth import HTTPBasicAuth
 from settings import BASE_DIR
 
@@ -52,8 +53,14 @@ def show_works():
 
 @app.route("/skills")
 def show_skills():
-    works = [item.serialize for item in get_skills()]
-    return jsonify(works), 200
+    skills = [item.serialize for item in get_skills()]
+    return jsonify(skills), 200
+
+
+@app.route("/experience")
+def show_experience():
+    experience = [item.serialize for item in get_experience()]
+    return jsonify(experience), 200
 
 
 @app.route("/token")
