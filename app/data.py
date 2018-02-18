@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from models import Certificates, Works, User, Skills, session
+from models import Certificates, Works, User, Skills, Experience, session
 
 
 # database actions
@@ -53,3 +53,8 @@ def get_skills():
     :return:
     """
     return session.query(Skills).all()
+
+
+def get_experience():
+
+    return session.query(Experience).all()
