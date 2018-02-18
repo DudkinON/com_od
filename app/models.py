@@ -203,6 +203,15 @@ class Skills(Base):
         }
 
 
+class Experience(Base):
+
+    __tablename__ = 'experience'
+    id = Column(Integer, primary_key=True)
+    title = Column(String(60))
+    description = Column(String(250))
+    start = Column(Integer)
+    end = Column(Integer)
+
 # create engine
 engine = create_engine(egg)
 Base.metadata.create_all(engine)
