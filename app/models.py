@@ -191,7 +191,7 @@ class Skills(Base):
     @property
     def serialize(self):
         """
-        Return skills categories serialize data
+        Return skills serialize data
 
         :return dict:
         """
