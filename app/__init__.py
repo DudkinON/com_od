@@ -71,6 +71,10 @@ def show_skills():
 
 @app.route("/experience")
 def show_experience():
+    """
+    Return experience work places (JSON format)
+    :return String: (JSON)
+    """
     experience = [item.serialize for item in get_experience()]
     return jsonify(experience), 200
 
