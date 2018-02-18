@@ -212,6 +212,18 @@ class Experience(Base):
     start = Column(Integer)
     end = Column(Integer)
 
+    @property
+    def serialize(self):
+
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'start': self.start,
+            'end': self.end
+        }
+
+
 # create engine
 engine = create_engine(egg)
 Base.metadata.create_all(engine)
