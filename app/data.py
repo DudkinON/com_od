@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from models import Certificates, Works, User, Skills, Experience, session
+from models import Certificates, Works, User, SkillsCategory, Experience
+from models import session
 
 
 # database actions
@@ -52,7 +53,7 @@ def get_skills():
     Return list of skills
     :return:
     """
-    return session.query(Skills).all()
+    return session.query(SkillsCategory).order_by('id').all()
 
 
 def get_experience():
