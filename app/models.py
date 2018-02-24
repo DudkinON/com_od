@@ -168,7 +168,8 @@ class SkillsCategory(Base):
         """
         return {
             'id': self.id,
-            'title': self.title
+            'title': self.title,
+            'skills': self.get_skills()
         }
 
 
@@ -180,14 +181,6 @@ class Skills(Base):
     percent = Column(Integer)
     category = Column(Integer, ForeignKey("skills_category.id"))
 
-    def get_category(self):
-        """
-        Return serialize category
-        :return:
-        """
-        return session.query(SkillsCategory).filter_by(
-            id=self.category).one().serialize
-
     @property
     def serialize(self):
         """
@@ -198,8 +191,7 @@ class Skills(Base):
         return {
             'id': self.id,
             'title': self.title,
-            'percent': self.percent,
-            'category': self.get_category()
+            'percent': self.percent
         }
 
 
