@@ -159,6 +159,11 @@ class SkillsCategory(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String(60))
 
+    def get_skills(self):
+
+        return [item.serialize for item in session.query(Skills).filter_by(
+            category=self.id).order_by(Skills.percent.desc()).all()]
+
     @property
     def serialize(self):
         """
