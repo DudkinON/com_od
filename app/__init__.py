@@ -3,7 +3,7 @@
 
 from flask import Flask, jsonify, g, make_response
 from data import get_certificates, get_works, User, get_user_by_id, get_skills
-from data import get_experience
+from data import get_experience, get_info, get_education, get_social
 from flask_httpauth import HTTPBasicAuth
 from settings import BASE_DIR
 
@@ -80,6 +80,15 @@ def show_experience():
     """
     experience = [item.serialize for item in get_experience()]
     return jsonify(experience), 200
+
+
+@app.route("/info")
+def show_info():
+
+    info = [item.serialize for item in get_info()]
+    res = make_response(jsonify(info))
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    return res, 200
 
 
 @app.route("/token")
