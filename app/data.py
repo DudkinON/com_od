@@ -65,5 +65,8 @@ def get_experience():
 
 
 def get_info():
-
+    """
+    Return user info
+    :return:
+    """
     return session.query(Info).all()
