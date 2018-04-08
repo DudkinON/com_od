@@ -258,6 +258,18 @@ class Education(Base):
     start = Column(String(250))
     end = Column(String(250))
 
+    @property
+    def serialize(self):
+        return {
+            'name': self.name,
+            'title': self.title,
+            'description': self.description,
+            'specialisation': self.specialisation,
+            'url': self.url,
+            'start': self.start,
+            'end': self.end
+        }
+
 
 # create engine
 engine = create_engine(egg)
