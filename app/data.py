@@ -82,5 +82,8 @@ def get_education():
 
 
 def get_social():
-
+    """
+    Return list of contacts and social networks
+    :return:
+    """
     return session.query(Social).all()
