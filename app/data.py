@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from models import Education, Social
 from models import Certificates, Works, User, SkillsCategory, Experience, Info
 from models import session
 
@@ -70,3 +71,8 @@ def get_info():
     :return:
     """
     return session.query(Info).all()
+
+
+def get_education():
+
+    return session.query(Education).all()
