@@ -79,3 +79,8 @@ def get_education():
     :return:
     """
     return session.query(Education).all()
+
+
+def get_social():
+
+    return session.query(Social).all()
