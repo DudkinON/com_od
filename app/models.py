@@ -236,6 +236,15 @@ class Info(Base):
     title = Column(String(250))
     description = Column(String(250))
 
+    @property
+    def serialize(self):
+        return {
+            'name': self.name,
+            'slogan': self.slogan,
+            'title': self.title,
+            'description': self.description
+        }
+
 
 # create engine
 engine = create_engine(egg)
