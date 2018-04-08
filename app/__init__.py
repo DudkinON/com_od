@@ -96,7 +96,10 @@ def show_info():
 
 @app.route("/education")
 def show_education():
-
+    """
+    Return education info (JSON format)
+    :return String: (JSON)
+    """
     info = [item.serialize for item in get_education()]
     res = make_response(jsonify(info))
     res.headers['Access-Control-Allow-Origin'] = '*'
