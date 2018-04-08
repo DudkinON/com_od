@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from models import Certificates, Works, User, SkillsCategory, Experience
+from models import Certificates, Works, User, SkillsCategory, Experience, Info
 from models import session
 
 
@@ -62,3 +62,8 @@ def get_experience():
     :return:
     """
     return session.query(Experience).all()
+
+
+def get_info():
+
+    return session.query(Info).all()
