@@ -160,7 +160,10 @@ class SkillsCategory(Base):
     title = Column(String(60))
 
     def get_skills(self):
-
+        """
+        Return serialize skill
+        :return:
+        """
         return [item.serialize for item in session.query(Skills).filter_by(
             category=self.id).order_by(Skills.percent.desc()).all()]
 
@@ -223,6 +226,15 @@ class Experience(Base):
             'start': self.start,
             'end': self.end
         }
+
+
+class Info(Base):
+    __tablename__ = 'info'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(20))
+    slogan = Column(String(250))
+    title = Column(String(250))
+    description = Column(String(250))
 
 
 # create engine
