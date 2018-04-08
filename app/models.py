@@ -280,6 +280,15 @@ class Social(Base):
     style = Column(String(50))
     is_active = Column(Boolean)
 
+    @property
+    def serialize(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'url': self.url,
+            'style': self
+        }
+
 
 # create engine
 engine = create_engine(egg)
