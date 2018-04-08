@@ -108,7 +108,10 @@ def show_education():
 
 @app.route("/social")
 def show_social():
-
+    """
+    Return list of social networks and contacts (JSON format)
+    :return String: (JSON)
+    """
     info = [item.serialize for item in get_social()]
     res = make_response(jsonify(info))
     res.headers['Access-Control-Allow-Origin'] = '*'
