@@ -246,6 +246,19 @@ class Info(Base):
         }
 
 
+class Education(Base):
+
+    __tablename__ = 'education'
+    id = Column(Integer, primary_key=True)
+    title = Column(String(20))
+    name = Column(String(250))
+    description = Column(String(250))
+    specialisation = Column(String(250))
+    url = Column(String(250))
+    start = Column(String(250))
+    end = Column(String(250))
+
+
 # create engine
 engine = create_engine(egg)
 Base.metadata.create_all(engine)
