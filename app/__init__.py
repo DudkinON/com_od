@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from flask import Flask, jsonify, g
+from flask import Flask, jsonify, g, make_response
 from data import get_certificates, get_works, User, get_user_by_id, get_skills
 from data import get_experience
 from flask_httpauth import HTTPBasicAuth
@@ -65,8 +65,11 @@ def show_skills():
     Return all skills with categories (JSON format)
     :return String: (JSON)
     """
+
     skills = [item.serialize for item in get_skills()]
-    return jsonify(skills), 200
+    res = make_response(jsonify(skills))
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    return res, 200
 
 
 @app.route("/experience")
