@@ -286,7 +286,7 @@ class Social(Base):
             'id': self.id,
             'name': self.name,
             'url': self.url,
-            'style': self
+            'style': self.style
         }
 
 
