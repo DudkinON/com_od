@@ -106,6 +106,15 @@ def show_education():
     return res, 200
 
 
+@app.route("/social")
+def show_social():
+
+    info = [item.serialize for item in get_social()]
+    res = make_response(jsonify(info))
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    return res, 200
+
+
 @app.route("/token")
 @auth.login_required
 def get_auth_token():
