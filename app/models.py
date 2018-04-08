@@ -271,6 +271,16 @@ class Education(Base):
         }
 
 
+class Social(Base):
+
+    __tablename__ = 'social'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(30))
+    url = Column(String(250))
+    style = Column(String(50))
+    is_active = Column(Boolean)
+
+
 # create engine
 engine = create_engine(egg)
 Base.metadata.create_all(engine)
