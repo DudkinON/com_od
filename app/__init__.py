@@ -94,6 +94,15 @@ def show_info():
     return res, 200
 
 
+@app.route("/education")
+def show_education():
+
+    info = [item.serialize for item in get_education()]
+    res = make_response(jsonify(info))
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    return res, 200
+
+
 @app.route("/token")
 @auth.login_required
 def get_auth_token():
