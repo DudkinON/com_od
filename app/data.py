@@ -74,5 +74,8 @@ def get_info():
 
 
 def get_education():
-
+    """
+    Return education info
+    :return:
+    """
     return session.query(Education).all()
