@@ -84,7 +84,10 @@ def show_experience():
 
 @app.route("/info")
 def show_info():
-
+    """
+    Return user info (JSON format)
+    :return String: (JSON)
+    """
     info = [item.serialize for item in get_info()]
     res = make_response(jsonify(info))
     res.headers['Access-Control-Allow-Origin'] = '*'
