@@ -56,7 +56,9 @@ def show_certificates():
 @app.route("/works")
 def show_works():
     works = [item.serialize for item in get_works()]
-    return jsonify(works), 200
+    res = make_response(jsonify(works))
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    return res, 200
 
 
 @app.route("/skills")
