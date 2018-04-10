@@ -79,7 +79,9 @@ def show_experience():
     :return String: (JSON)
     """
     experience = [item.serialize for item in get_experience()]
-    return jsonify(experience), 200
+    res = make_response(jsonify(experience))
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    return res, 200
 
 
 @app.route("/info")
