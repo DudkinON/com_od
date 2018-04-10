@@ -50,7 +50,9 @@ def show_certificates():
     :return String: (JSON)
     """
     certificates = [item.serialize for item in get_certificates()]
-    return jsonify(certificates), 200
+    res = make_response(jsonify(certificates))
+    res.headers['Access-Control-Allow-Origin'] = '*'
+    return res, 200
 
 
 @app.route("/works")
