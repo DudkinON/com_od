@@ -1,0 +1,5 @@
+flask==0.12.2
+sqlalchemy==1.1.15
+psycopg2==2.7.3.2
+passlib[argon2]==1.7.1
+itsdangerous==0.24
