@@ -9,7 +9,7 @@ from models import session
 # database actions
 def get_certificates():
     """
-    Return list of certificates
+    Return list of certificates order by id desc
     :return object:
     """
     return session.query(Certificates).filter_by(
