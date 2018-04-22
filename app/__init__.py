@@ -31,18 +31,6 @@ def verify_password(_login, password):
     return True
 
 
-@app.route("/")
-def home():
-    """
-    Read and return index HTML file
-    :return String:
-    """
-    path = "%s/%s" % (BASE_DIR, "index.html")
-    with open(path, "r+") as f:
-        html = f.read()
-    return html
-
-
 @app.route("/certificates")
 def show_certificates():
     """
