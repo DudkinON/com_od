@@ -12,7 +12,8 @@ def get_certificates():
     Return list of certificates
     :return object:
     """
-    return session.query(Certificates).filter_by(is_active=True).all()
+    return session.query(Certificates).filter_by(
+        is_active=True).order_by(Certificates.id.desc()).all()
 
 
 def get_works():
