@@ -92,4 +92,10 @@ def get_social():
 
 
 def get_json(data):
+    """
+    Get dictionary and return JSON string with UTF-8
+
+    :param data: dict
+    :return: string
+    """
     return dumps(data, ensure_ascii=False)
