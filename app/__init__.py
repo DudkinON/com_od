@@ -3,8 +3,9 @@
 
 from flask import Flask, jsonify, g, make_response
 from data import get_certificates, get_works, User, get_user_by_id, get_skills
-from data import get_experience, get_info, get_education, get_social
+from data import get_experience, get_info, get_education, get_social, get_json
 from flask_httpauth import HTTPBasicAuth
+
 from settings import BASE_DIR
 
 # define global variables
@@ -46,8 +47,9 @@ def show_certificates():
 @app.route("/works")
 def show_works():
     works = [item.serialize for item in get_works()]
-    res = make_response(jsonify(works))
+    res = make_response(get_json(works))
     res.headers['Access-Control-Allow-Origin'] = '*'
+    res.headers['Content-Type'] = 'application/json'
     return res, 200
 
 
