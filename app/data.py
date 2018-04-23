@@ -4,6 +4,7 @@
 from models import Education, Social
 from models import Certificates, Works, User, SkillsCategory, Experience, Info
 from models import session
+from json import dumps
 
 
 # database actions
@@ -88,3 +89,7 @@ def get_social():
     :return:
     """
     return session.query(Social).all()
+
+
+def get_json(data):
+    return dumps(data, ensure_ascii=False)
